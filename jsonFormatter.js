@@ -6,8 +6,9 @@ process.setUncaughtExceptionCaptureCallback( e => {
 const str = "{\"a\":\"a1\", \"b\":\"b1\", \"c\":[\"c1\",\"c2\"]}";
 
 const patterns = [
-    /"[\w]+":"[\w\d\s]*"/g, 
-    /"[\w]+":\[[\w\d\s,"]*\]/g
+    /"[\w]+":"[A-Z\w\d\s.\-\:]*"/g, 
+    /"[\w]+":[\d\s]*/g, 
+    /"[\w]+":\[[A-Z\w\d\s,.\-\"]*\]/g
 ];
 
 let finalMatchedResult = [];
