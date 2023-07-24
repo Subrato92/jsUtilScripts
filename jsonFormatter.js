@@ -17,8 +17,12 @@ let finalMatchedResult = [];
 for(pattern of patterns){
     console.log("processing pattern : %s", pattern);
     matchedResult = str.match(pattern);
-    console.log("   matchedResult(s) : %s \n", JSON.stringify(matchedResult));
-    finalMatchedResult = finalMatchedResult.concat(matchedResult);
+    if(matchedResult != null && matchedResult != undefined){
+        console.log("   matchedResult(s) : %s \n", JSON.stringify(matchedResult));
+        finalMatchedResult = finalMatchedResult.concat(matchedResult);
+    }else{
+        console.log("   matchedResult(s) : null \n");
+    }
 }
 
 let formattedJson = "{ \n\t"+finalMatchedResult.join(",\r\n\t")+ "\n}"
